@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="icon" href="./public/favicon.ico" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <div id="header">
+        <h1>Tic Tac Toe</h1>
+    </div>
+
+    <!-- TIC TAC TOE BOARD -->
+    <div id="main">
+        <div id="board-container">
+            <div class="row">
+                <div class="border"><div class="col _00 _0" elementNum="0" cell-index-row="0" cell-index-col="0" ></div></div>
+                <div class="border"><div class="col _01 _3" elementNum="3" cell-index-row="0" cell-index-col="1" ></div></div>
+                <div class="border"><div class="col _02 _6" elementNum="6" cell-index-row="0" cell-index-col="2" ></div></div>
+            </div>
+
+            <div class="row">
+                <div class="border"><div class="col _10 _1" elementNum="1" cell-index-row="1" cell-index-col="0" ></div></div>
+                <div class="border"><div class="col _11 _4" elementNum="4" cell-index-row="1" cell-index-col="1" ></div></div>
+                <div class="border"><div class="col _12 _7" elementNum="7" cell-index-row="1" cell-index-col="2" ></div></div>
+            </div>
+
+            <div class="row">
+                <div class="border"><div class="col _20 _2" elementNum="2" cell-index-row="2" cell-index-col="0" ></div></div>
+                <div class="border"><div class="col _21 _5" elementNum="5" cell-index-row="2" cell-index-col="1" ></div></div>
+                <div class="border"><div class="col _22 _8" elementNum="8" cell-index-row="2" cell-index-col="2" ></div></div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer">
+        <div class="player-turns"></div>
+        <h1 class="game-result"></h1>
+        <div class="btns-container">
+            <div class="next-n-prev-btn">
+                <button class="btn prev-btn"><i class="fas fa-caret-left"></i></button>
+                <div>
+                    <button class="btn reset-btn">Reset</button>
+                </div>
+                <button class="btn next-btn"><i class="fas fa-caret-right"></i></button>
+            </div>
+            
+            <div>
+                <i class="fas fa-cog"></i>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    
+
+    <!-- MODAL FOR TIC TAC TOE RULES -->
+    <div class="popup center">
+        <div class="title">
+            Tic Tac Toe
+        </div>
+        <div class="description">
+            <h3>RULES FOR TIC-TAC-TOE</h3>
+            <br />
+            1. The game is played on a grid that's 3 squares by 3 squares.
+            <br />
+            2. Choose your checkers. Players take turns putting their marks in empty squares.
+            <br />
+            3. The first player to get 3 of his/her marks in a row (up, down, across, or diagonally) is the winner.
+            <br />
+            4. When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
+        </div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn">Start</button>
+            <button class="close-popup-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- MODAL FOR CHOOSING PLAYERS' COLOR-->
+    <div class="popup center choose-color">
+        <div class="title">
+            Choose your color:
+        </div>
+        <div class="description">
+            <div class="player-btns player1-btn player-color">Player 1 <input class="player1-color-input" type="color" value="#33cc33"/></div>
+            <div class="player-btns player2-btn player-color">Player 2 <input class="player2-color-input" type="color" value="#0000FF"/></div>
+        </div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn" class="start-btn okay-change-color">OK</button>
+            <button class="close-popup-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- MODAL FOR CHOOSING A PLAYER -->
+    <div class="popup center choose-player">
+        <div class="title">
+            Enter your names:
+        </div>
+        <div class="description">
+            <div class="player-btns player1-btn player-name-p1">Player 1 <input class="player1-input" placeholder="Player 1 Name" maxlength="15"/></div>
+            <div class="player-btns player2-btn player-name-p2">Player 2 <input class="player2-input" placeholder="Player 2 Name" maxlength="15"/></div>
+        </div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn" class="start-btn okay-change-name">OK</button>
+            <button class="close-popup-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- MODAL FOR PLAYER 1 CHOOSING A CHECKER -->
+    <div class="popup center choose-player choose-checkers-player1">
+        <div class="title">
+            <div class="p1-name"></div> 
+            <p class="sub-title">Choose your Checker:</p> 
+            <div class="checkers">
+                <div class="x-checker x-checker-p1">X</div>
+                <div class="o-checker o-checker-p1">O</div>
+            </div>
+        </div>
+        <div class="description">
+            <!-- <div class="player-btns player1-btn">Player 1 <input class="player1-input" placeholder="Player 1 Name" value="Player 1"/></div> -->
+        </div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn" class="start-btn start-btn-choose-checkers-player1">OK</button>
+        </div>
+    </div>
+
+    <!-- MODAL FOR PLAYER 2 CHOOSING A CHECKER -->
+    <div class="popup center choose-player choose-checkers-player2">
+        <div class="title">
+            <div class="p2-name"></div> 
+            <p class="sub-title">Checker:</p> 
+            <div class="checkers">
+                <div class="x-checker x-checker-p2">X</div>
+                <div class="o-checker o-checker-p2">O</div>
+            </div>
+        </div>
+        <div class="description">
+            <!-- <div class="player-btns player1-btn">Player 1 <input class="player1-input" placeholder="Player 1 Name" value="Player 1"/></div> -->
+        </div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn" class="start-btn start-btn-choose-checkers-player2">OK</button>
+        </div>
+    </div>
+
+    <!-- MODAL FOR SETTINGS -->
+    <div class="popup center settings">
+        <div class="title">
+            Settings
+        </div>
+        <div class="description">
+            <div>
+                <button class="btn rules">Rules</button>
+            </div>
+            <div class="change-btn">
+                <button class="btn change-player-name">Change Players' Name</button>
+                <button class="btn change-player-color">Change Players' Color</button>
+                <button class="btn change-player-checker">Change Players' Checker</button>
+            </div>
+        </div>
+        <div class="dismiss-btn">
+            <button class="close-popup-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- MODAL FOR PLAYER 1 WINS -->
+    <div class="popup center player-win">
+        <div class="title"></div>
+        <div class="description">
+            <img src="" width="100%" />
+        </div>
+        <div class="dismiss-btn">
+            <button class="close-popup-btn">Close</button>
+        </div>
+    </div>
+
+    <script type="module" src="./js/index.js"></script>
+</body>
+</html>

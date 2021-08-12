@@ -1,0 +1,240 @@
+.center {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.popup {
+    width:350px;
+    padding:30px 20px;
+    background:#f5f5f5;
+    border-radius:10px;
+    box-sizing:border-box;
+    z-index:2;
+    text-align:center;
+    opacity:0;
+    top:-200%;
+    transform:translate(-50%,-50%) scale(0.5);
+    transition: opacity 300ms ease-in-out,
+                top 1000ms ease-in-out,
+                transform 1000ms ease-in-out;
+    .title {
+        margin:5px 0px;
+        font-size:30px;
+        font-weight:600;
+        .sub-title {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+        .checkers {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            .x-checker {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                margin: 0 1rem;
+                cursor: pointer;
+                width: 3rem;
+                height: 3rem;
+                &:hover {
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                } 
+            }
+                .x-checker-p1 {
+                    color: #fff;
+                }
+                .x-checker-p2 {
+                    // background: #fff;
+                    color: #fff;
+                    cursor: unset;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                }
+            .o-checker {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                margin: 0 1rem;
+                cursor: pointer;
+                width: 3rem;
+                height: 3rem;
+                &:hover {
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                } 
+            }
+                .o-checker-p1 {
+                    color: #fff;
+                }
+                .o-checker-p2 {
+                    // background: #fff;
+                    color: #fff;
+                    cursor: unset;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                }
+            .active-checker-p1 {
+                border: 2px solid #000;
+            }
+            .active-checker-p2 {
+                border: 2px solid #000;
+            }
+            
+        }
+        
+    }
+    .description {
+        color:#222;
+        font-size:15px;
+        padding:5px;
+        h3 {
+            margin: 0;
+            text-align: center;
+        }
+        .player-btns {
+            padding:10px 20px;
+            font-size:16px;
+            font-weight:600;
+            outline:none;
+            border-radius: 5px;
+            transition: all 300ms ease-in-out;  
+        }
+        .player1-btn {
+            background: blue;
+            color:#f5f5f5;
+            border:2px solid blue;
+        }
+        .player2-btn {
+            background: green;
+            color:#f5f5f5;
+            border:2px solid green;
+            margin-top: 0.3rem;
+        }
+        .player-color {
+            background: unset;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000;
+            border: unset;
+            gap: 1.5rem;
+        }
+        input.player1-color-input {
+            cursor: pointer;
+        }
+        input.player2-color-input {
+            cursor: pointer;
+        }
+    }
+    .dismiss-btn {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-top:15px;
+        button {
+            padding:10px 20px;
+            background:#111;
+            color:#f5f5f5;
+            border:2px solid #111;
+            font-size:16px;
+            font-weight:600;
+            outline:none;
+            border-radius:10px;
+            cursor:pointer;
+            transition: all 300ms ease-in-out;
+            margin: 0 auto;
+            &:hover {
+                color:#111;
+                background:#f5f5f5;
+            }
+        }
+        .start-btn-choose-checkers-player1 {
+           display: none;
+        }
+        .okay-change-name {
+            display: block;
+        }
+        .next-popup-btn {
+            display: none;
+        }
+    }
+    .close-popup-btn {
+        display: none;
+    }
+}
+.popup.active {
+    opacity:1;
+    top:50%;
+    transform:translate(-50%,-50%) scale(1);
+    transition: transform 300ms cubic-bezier(0.18,0.89,0.43,1.19);
+    border: 2px solid #000;
+    .title {
+        transition: all 300ms ease-in-out 300ms;
+        color: #000;
+    }
+    .description {
+        transition: all 300ms ease-in-out 350ms;
+    }
+    .dismiss-btn {
+        transition: all 300ms ease-in-out 400ms;
+    }
+}
+.popup > div {
+    position:relative;
+    top:10px;
+    opacity:0;
+}
+.popup.active > div {
+    top:0px;
+    opacity:1;
+}
+
+    .change-btn{
+        .btn {
+            transition: all 300ms ease-in-out;
+        }
+    }
+
+
+.settings {
+    .btn {
+        width: 100%;
+        padding:10px 20px;
+        background: gray;
+        color:#f5f5f5;
+        border:2px solid #111;
+        font-size:16px;
+        font-weight:600;
+        outline:none;
+        border-radius:10px;
+        cursor:pointer;
+        transition: all 300ms ease-in-out;
+        margin: 0 auto;
+        &:hover {
+            color:#111;
+            background:#f5f5f5;
+        }
+    }
+    .change-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+        gap: 0.2rem;
+        
+        .start-btn-choose-checkers-player1 {
+            display: none;
+        }
+        .okay-change-name {
+            display: block;
+        }
+        .next-popup-btn {
+            display: none;
+        }
+    }
+}
+
+

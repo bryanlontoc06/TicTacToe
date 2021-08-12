@@ -1,0 +1,39 @@
+@use './components';
+
+html {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    background-image: url('../public/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    color: #fff;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.player-turns {
+    visibility: visible;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+.blink {
+    animation: blinker 1s infinite;
+}
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
