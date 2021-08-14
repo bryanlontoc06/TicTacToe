@@ -1,8 +1,8 @@
-import firstLoadingState from './firstLoadingState.js'
 import resetDocuments from './resetDocument.js'
 import { columnOne, columnTwo, columnThree, rowOne, rowTwo, rowThree, draw, diagonalOne, diagonalTwo } from './resultFunctions.js';
 import playerWins from './playerWins.js'
-
+import playerClick from './playerCondition.js'
+import nextButtonPlayerCondition from './nextButtonPlayerCondition.js';
 
 let player = 1;
 let win = -1;
@@ -12,7 +12,6 @@ let board = [
     ['d', 'e', 'f'],
     ['g', 'h', 'i']
 ]
-
 /*      Board Map
     [0,0][1,0][2,0] 
     [0,1][1,1][2,1]
@@ -30,8 +29,6 @@ let gameHistory = [];
 
 let boardPlot = [];
 let boardPlotHistory = [];
-
-firstLoadingState(); // First App State
 
 let cols = document.querySelectorAll('.col')
 Array.from(cols).map((col) => {
@@ -62,198 +59,31 @@ const clickedCell = (element, row, col, elNum) => {
             gameState.push(JSON.parse(JSON.stringify(game)))
             boardPlot.push(elNum)
             if(elNum == 0) {
-                if (player == 1) {
-                    element.innerHTML = localStorage.getItem('p1-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p2')}'s turn`
-                    document.querySelector('.change-player-name').style.pointerEvents = "none"
-                    document.querySelector('.change-player-color').style.pointerEvents = "none"
-                    document.querySelector('.change-player-checker').style.pointerEvents = "none"
-                    element.style.color = `#fff`
-                    if(player = 1){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p1-color')}`
-                    }
-                    player = 2;
-                } else if (player == 2) {
-                    element.innerHTML = localStorage.getItem('p2-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p1')}'s turn`
-                    element.style.color = `#fff`
-                    if(player = 2){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p2-color')}`
-                    }
-                    player = 1;
-                }
+                playerClick(player, element);
             } else if (elNum == 1) {
-                if (player == 1) {
-                    element.innerHTML = localStorage.getItem('p1-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p2')}'s turn`
-                    document.querySelector('.change-player-name').style.pointerEvents = "none"
-                    document.querySelector('.change-player-color').style.pointerEvents = "none"
-                    document.querySelector('.change-player-checker').style.pointerEvents = "none"
-                    element.style.color = `#fff`
-                    if(player = 1){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p1-color')}`
-                    }
-                    player = 2;
-                } else if (player == 2) {
-                    element.innerHTML = localStorage.getItem('p2-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p1')}'s turn`
-                    element.style.color = `#fff`
-                    if(player = 2){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p2-color')}`
-                    }
-                    player = 1;
-                }
+                playerClick(player, element);
             }  else if (elNum == 2) {
-                if (player == 1) {
-                    element.innerHTML = localStorage.getItem('p1-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p2')}'s turn`
-                    document.querySelector('.change-player-name').style.pointerEvents = "none"
-                    document.querySelector('.change-player-color').style.pointerEvents = "none"
-                    document.querySelector('.change-player-checker').style.pointerEvents = "none"
-                    element.style.color = `#fff`
-                    if(player = 1){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p1-color')}`
-                    }
-                    player = 2;
-                } else if (player == 2) {
-                    element.innerHTML = localStorage.getItem('p2-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p1')}'s turn`
-                    element.style.color = `#fff`
-                    if(player = 2){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p2-color')}`
-                    }
-                    player = 1;
-                }
+                playerClick(player, element);
             } else if (elNum == 3) {
-                if (player == 1) {
-                    element.innerHTML = localStorage.getItem('p1-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p2')}'s turn`
-                    document.querySelector('.change-player-name').style.pointerEvents = "none"
-                    document.querySelector('.change-player-color').style.pointerEvents = "none"
-                    document.querySelector('.change-player-checker').style.pointerEvents = "none"
-                    element.style.color = `#fff`
-                    if(player = 1){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p1-color')}`
-                    }
-                    player = 2;
-                } else if (player == 2) {
-                    element.innerHTML = localStorage.getItem('p2-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p1')}'s turn`
-                    element.style.color = `#fff`
-                    if(player = 2){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p2-color')}`
-                    }
-                    player = 1;
-                }
+                playerClick(player, element);
             }  else if (elNum == 4) {
-                if (player == 1) {
-                    element.innerHTML = localStorage.getItem('p1-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p2')}'s turn`
-                    document.querySelector('.change-player-name').style.pointerEvents = "none"
-                    document.querySelector('.change-player-color').style.pointerEvents = "none"
-                    document.querySelector('.change-player-checker').style.pointerEvents = "none"
-                    element.style.color = `#fff`
-                    if(player = 1){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p1-color')}`
-                    }
-                    player = 2;
-                } else if (player == 2) {
-                    element.innerHTML = localStorage.getItem('p2-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p1')}'s turn`
-                    element.style.color = `#fff`
-                    if(player = 2){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p2-color')}`
-                    }
-                    player = 1;
-                }
+                playerClick(player, element);
             }  else if (elNum == 5) {
-                if (player == 1) {
-                    element.innerHTML = localStorage.getItem('p1-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p2')}'s turn`
-                    document.querySelector('.change-player-name').style.pointerEvents = "none"
-                    document.querySelector('.change-player-color').style.pointerEvents = "none"
-                    document.querySelector('.change-player-checker').style.pointerEvents = "none"
-                    element.style.color = `#fff`
-                    if(player = 1){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p1-color')}`
-                    }
-                    player = 2;
-                } else if (player == 2) {
-                    element.innerHTML = localStorage.getItem('p2-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p1')}'s turn`
-                    element.style.color = `#fff`
-                    if(player = 2){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p2-color')}`
-                    }
-                    player = 1;
-                }
+                playerClick(player, element);
             }  else if (elNum == 6) {
-                if (player == 1) {
-                    element.innerHTML = localStorage.getItem('p1-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p2')}'s turn`
-                    document.querySelector('.change-player-name').style.pointerEvents = "none"
-                    document.querySelector('.change-player-color').style.pointerEvents = "none"
-                    document.querySelector('.change-player-checker').style.pointerEvents = "none"
-                    element.style.color = `#fff`
-                    if(player = 1){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p1-color')}`
-                    }
-                    player = 2;
-                } else if (player == 2) {
-                    element.innerHTML = localStorage.getItem('p2-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p1')}'s turn`
-                    element.style.color = `#fff`
-                    if(player = 2){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p2-color')}`
-                    }
-                    player = 1;
-                }
+                playerClick(player, element);
             }  else if (elNum == 7) {
-                if (player == 1) {
-                    element.innerHTML = localStorage.getItem('p1-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p2')}'s turn`
-                    document.querySelector('.change-player-name').style.pointerEvents = "none"
-                    document.querySelector('.change-player-color').style.pointerEvents = "none"
-                    document.querySelector('.change-player-checker').style.pointerEvents = "none"
-                    element.style.color = `#fff`
-                    if(player = 1){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p1-color')}`
-                    }
-                    player = 2;
-                } else if (player == 2) {
-                    element.innerHTML = localStorage.getItem('p2-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p1')}'s turn`
-                    element.style.color = `#fff`
-                    if(player = 2){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p2-color')}`
-                    }
-                    player = 1;
-                }
+                playerClick(player, element);
             }  else if (elNum == 8) {
-                if (player == 1) {
-                    element.innerHTML = localStorage.getItem('p1-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p2')}'s turn`
-                    document.querySelector('.change-player-name').style.pointerEvents = "none"
-                    document.querySelector('.change-player-color').style.pointerEvents = "none"
-                    document.querySelector('.change-player-checker').style.pointerEvents = "none"
-                    element.style.color = `#fff`
-                    if(player = 1){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p1-color')}`
-                    }
-                    player = 2;
-                } else if (player == 2) {
-                    element.innerHTML = localStorage.getItem('p2-checker');
-                    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p1')}'s turn`
-                    element.style.color = `#fff`
-                    if(player = 2){
-                        element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p2-color')}`
-                    }
-                    player = 1;
-                }
+                playerClick(player, element);
             } 
+            if(player == 1){
+                player = 2;
+            } else if(player == 2){
+                player = 1;
+            }
         }
     }
-
 
         /* ********** COLUMN CHECK ********** */
         if((board[0][0] === board[0][1]) && (board[0][1] == board[0][2])) {
@@ -313,77 +143,34 @@ const clickedCell = (element, row, col, elNum) => {
 
 }
 
-
+/* ***** NEXT AND PREVIOUS BUTTONS ***** */
 document.querySelector('.prev-btn').addEventListener('click', function() {
     gameHistory.push(gameState[gameState.length - 1])
     gameState.pop()
-
-
     if(boardPlot[boardPlot.length - 1] == 0) {
         document.querySelector('._0').innerHTML = '';
-        if(player == 1){
-            player = 2;
-        } else if(player == 2){
-            player = 1;
-        }
     } else if(boardPlot[boardPlot.length - 1] == 1) {
         document.querySelector('._1').innerHTML = '';
-        if(player == 1){
-            player = 2;
-        } else if(player == 2){
-            player = 1;
-        }
     } else if(boardPlot[boardPlot.length - 1] == 2) {
         document.querySelector('._2').innerHTML = '';
-        if(player == 1){
-            player = 2;
-        } else if(player == 2){
-            player = 1;
-        }
     } else if(boardPlot[boardPlot.length - 1] == 3) {
         document.querySelector('._3').innerHTML = '';
-        if(player == 1){
-            player = 2;
-        } else if(player == 2){
-            player = 1;
-        }
     } else if(boardPlot[boardPlot.length - 1] == 4) {
         document.querySelector('._4').innerHTML = '';
-        if(player == 1){
-            player = 2;
-        } else if(player == 2){
-            player = 1;
-        }
     } else if(boardPlot[boardPlot.length - 1] == 5) {
         document.querySelector('._5').innerHTML = '';
-        if(player == 1){
-            player = 2;
-        } else if(player == 2){
-            player = 1;
-        }
     } else if(boardPlot[boardPlot.length - 1] == 6) {
         document.querySelector('._6').innerHTML = '';
-        if(player == 1){
-            player = 2;
-        } else if(player == 2){
-            player = 1;
-        }
     } else if(boardPlot[boardPlot.length - 1] == 7) {
         document.querySelector('._7').innerHTML = '';
-        if(player == 1){
-            player = 2;
-        } else if(player == 2){
-            player = 1;
-        }
     } else if(boardPlot[boardPlot.length - 1] == 8) {
         document.querySelector('._8').innerHTML = '';
-        if(player == 1){
-            player = 2;
-        } else if(player == 2){
-            player = 1;
-        }
     }
-
+    if(player == 1){
+        player = 2;
+    } else if(player == 2){
+        player = 1;
+    }
     boardPlotHistory.push(boardPlot[boardPlot.length - 1])
     boardPlot.pop()
     document.querySelector('.next-btn').style.pointerEvents = 'auto'
@@ -394,89 +181,35 @@ document.querySelector('.prev-btn').addEventListener('click', function() {
     if(boardPlotHistory.length >= 1) {
         document.querySelector('.next-btn').style.visibility = 'visible'
     }
-    
 })
-
-
 
 document.querySelector('.next-btn').addEventListener('click', function() {
     gameState.push(gameHistory[gameHistory.length - 1])
     gameHistory.pop()
-
     if(boardPlotHistory[boardPlotHistory.length - 1] == 0) {
-        if(player == 1){
-            document.querySelector('._0').innerHTML = localStorage.getItem('p1-checker');
-            player = 2;
-        } else if(player == 2){
-            document.querySelector('._0').innerHTML = localStorage.getItem('p2-checker');
-            player = 1 ;
-        }
+        nextButtonPlayerCondition(player, '._0'); 
     } else if(boardPlotHistory[boardPlotHistory.length - 1] == 1) {
-        if(player == 1){
-            document.querySelector('._1').innerHTML = localStorage.getItem('p1-checker');
-            player = 2;
-        } else if(player == 2){
-            document.querySelector('._1').innerHTML = localStorage.getItem('p2-checker');
-            player = 1;
-        }
+        nextButtonPlayerCondition(player, '._1');
     } else if(boardPlotHistory[boardPlotHistory.length - 1] == 2) {
-        if(player == 1){
-            document.querySelector('._2').innerHTML = localStorage.getItem('p1-checker');
-            player = 2;
-        } else if(player == 2){
-            document.querySelector('._2').innerHTML = localStorage.getItem('p2-checker');
-            player = 1;
-        }
+        nextButtonPlayerCondition(player, '._2');
     } else if(boardPlotHistory[boardPlotHistory.length - 1] == 3) {
-        if(player == 1){
-            document.querySelector('._3').innerHTML = localStorage.getItem('p1-checker');
-            player = 2;
-        } else if(player == 2){
-            document.querySelector('._3').innerHTML = localStorage.getItem('p2-checker');
-            player = 1;
-        }
+        nextButtonPlayerCondition(player, '._3');
     } else if(boardPlotHistory[boardPlotHistory.length - 1] == 4) {
-        if(player == 1){
-            document.querySelector('._4').innerHTML = localStorage.getItem('p1-checker');
-            player = 2;
-        } else if(player == 2){
-            document.querySelector('._4').innerHTML = localStorage.getItem('p2-checker');
-            player = 1;
-        }
+        nextButtonPlayerCondition(player, '._4');
     } else if(boardPlotHistory[boardPlotHistory.length - 1] == 5) {
-        if(player == 1){
-            document.querySelector('._5').innerHTML = localStorage.getItem('p1-checker');
-            player = 2;
-        } else if(player == 2){
-            document.querySelector('._5').innerHTML = localStorage.getItem('p2-checker');
-            player = 1;
-        }
+        nextButtonPlayerCondition(player, '._5');
     } else if(boardPlotHistory[boardPlotHistory.length - 1] == 6) {
-        if(player == 1){
-            document.querySelector('._6').innerHTML = localStorage.getItem('p1-checker');
-            player = 2;
-        } else if(player == 2){
-            document.querySelector('._6').innerHTML = localStorage.getItem('p2-checker');
-            player = 1;
-        }
+        nextButtonPlayerCondition(player, '._6');
     } else if(boardPlotHistory[boardPlotHistory.length - 1] == 7) {
-        if(player == 1){
-            document.querySelector('._7').innerHTML = localStorage.getItem('p1-checker');
-            player = 2;
-        } else if(player == 2){
-            document.querySelector('._7').innerHTML = localStorage.getItem('p2-checker');
-            player = 1;
-        }
+        nextButtonPlayerCondition(player, '._7');
     } else if(boardPlotHistory[boardPlotHistory.length - 1] == 8) {
-        if(player == 1){
-            document.querySelector('._8').innerHTML = localStorage.getItem('p1-checker');
-            player = 2;
-        } else if(player == 2){
-            document.querySelector('._8').innerHTML = localStorage.getItem('p2-checker');
-            player = 1;
-        }
+        nextButtonPlayerCondition(player, '._8');
     }
-
+    if(player == 1){
+        player = 2;
+    } else if(player == 2){
+        player = 1;
+    }
     boardPlot.push(boardPlotHistory[boardPlotHistory.length - 1])
     boardPlotHistory.pop()
     document.querySelector('.prev-btn').style.pointerEvents = 'auto'
@@ -488,12 +221,7 @@ document.querySelector('.next-btn').addEventListener('click', function() {
         document.querySelector('.prev-btn').style.visibility = 'visible'
     }
 })
-
-
-
-
-
-
+/* ***** RESET FUNCTION ***** */
 const reset = () => {
     let cols = document.querySelectorAll('.col')
     Array.from(cols).map((col) => {
@@ -520,6 +248,5 @@ const reset = () => {
     resetDocuments();
 }
 document.querySelector('.reset-btn').addEventListener('click', reset)
-
 
 export default clickedCell;

@@ -4,14 +4,17 @@
   width: 306px;
   margin: 40px auto;
 }
+
 #main #board-container .border {
   box-shadow: 0 0 0 1px #fff;
   border: 1px solid #fff;
   background: #191919;
 }
+
 #main #board-container .row {
   height: 100%;
 }
+
 #main #board-container .col {
   text-align: center;
   cursor: pointer;
@@ -38,10 +41,12 @@
   cursor: pointer;
   width: 100%;
 }
+
 #footer .reset-btn:hover {
   color: #111;
   background: #f5f5f5;
 }
+
 #footer .btns-container {
   display: flex;
   flex-direction: column;
@@ -51,6 +56,7 @@
   margin: 0 auto;
   align-items: center;
 }
+
 @media (min-width: 768px) {
   #footer .btns-container {
     width: 45rem;
@@ -59,6 +65,7 @@
 #footer .btns-container .rules {
   width: 100%;
 }
+
 #footer .btns-container .btn {
   padding: 10px 20px;
   font-size: 16px;
@@ -69,27 +76,33 @@
   border: 2px solid gray;
   cursor: pointer;
 }
+
 #footer .btns-container .btn .rules {
   background: lightblue;
   color: #000;
 }
+
 #footer .btns-container .change-btn {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
 }
+
 #footer .next-n-prev-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
+
 #footer .next-n-prev-btn .prev-btn {
   visibility: hidden;
 }
+
 #footer .next-n-prev-btn .next-btn {
   visibility: hidden;
 }
+
 #footer .fa-cog {
   cursor: pointer;
 }
@@ -114,21 +127,25 @@
   transform: translate(-50%, -50%) scale(0.5);
   transition: opacity 300ms ease-in-out, top 1000ms ease-in-out, transform 1000ms ease-in-out;
 }
+
 .popup .title {
   margin: 5px 0px;
   font-size: 30px;
   font-weight: 600;
 }
+
 .popup .title .sub-title {
   margin: 0;
   font-size: 1.2rem;
   font-weight: normal;
 }
+
 .popup .title .checkers {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
 }
+
 .popup .title .checkers .x-checker {
   display: flex;
   justify-content: center;
@@ -139,17 +156,21 @@
   width: 3rem;
   height: 3rem;
 }
+
 .popup .title .checkers .x-checker:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
 .popup .title .checkers .x-checker-p1 {
   color: #fff;
 }
+
 .popup .title .checkers .x-checker-p2 {
   color: #fff;
   cursor: unset;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
 .popup .title .checkers .o-checker {
   display: flex;
   justify-content: center;
@@ -160,32 +181,40 @@
   width: 3rem;
   height: 3rem;
 }
+
 .popup .title .checkers .o-checker:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
 .popup .title .checkers .o-checker-p1 {
   color: #fff;
 }
+
 .popup .title .checkers .o-checker-p2 {
   color: #fff;
   cursor: unset;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
 .popup .title .checkers .active-checker-p1 {
   border: 2px solid #000;
 }
+
 .popup .title .checkers .active-checker-p2 {
   border: 2px solid #000;
 }
+
 .popup .description {
   color: #222;
   font-size: 15px;
   padding: 5px;
 }
+
 .popup .description h3 {
   margin: 0;
   text-align: center;
 }
+
 .popup .description .player-btns {
   padding: 10px 20px;
   font-size: 16px;
@@ -194,17 +223,20 @@
   border-radius: 5px;
   transition: all 300ms ease-in-out;
 }
+
 .popup .description .player1-btn {
   background: blue;
   color: #f5f5f5;
   border: 2px solid blue;
 }
+
 .popup .description .player2-btn {
   background: green;
   color: #f5f5f5;
   border: 2px solid green;
   margin-top: 0.3rem;
 }
+
 .popup .description .player-color {
   background: unset;
   display: flex;
@@ -214,18 +246,22 @@
   border: unset;
   gap: 1.5rem;
 }
+
 .popup .description input.player1-color-input {
   cursor: pointer;
 }
+
 .popup .description input.player2-color-input {
   cursor: pointer;
 }
+
 .popup .dismiss-btn {
   display: block;
   justify-content: center;
   align-items: center;
   margin-top: 15px;
 }
+
 .popup .dismiss-btn button {
   padding: 10px 20px;
   background: #111;
@@ -239,19 +275,24 @@
   transition: all 300ms ease-in-out;
   margin: 0 auto;
 }
+
 .popup .dismiss-btn button:hover {
   color: #111;
   background: #f5f5f5;
 }
+
 .popup .dismiss-btn .start-btn-choose-checkers-player1 {
   display: none;
 }
+
 .popup .dismiss-btn .okay-change-name {
   display: block;
 }
+
 .popup .dismiss-btn .next-popup-btn {
   display: none;
 }
+
 .popup .close-popup-btn {
   display: none;
 }
@@ -263,13 +304,16 @@
   transition: transform 300ms cubic-bezier(0.18, 0.89, 0.43, 1.19);
   border: 2px solid #000;
 }
+
 .popup.active .title {
   transition: all 300ms ease-in-out 300ms;
   color: #000;
 }
+
 .popup.active .description {
   transition: all 300ms ease-in-out 350ms;
 }
+
 .popup.active .dismiss-btn {
   transition: all 300ms ease-in-out 400ms;
 }
@@ -303,10 +347,12 @@
   transition: all 300ms ease-in-out;
   margin: 0 auto;
 }
+
 .settings .btn:hover {
   color: #111;
   background: #f5f5f5;
 }
+
 .settings .change-btn {
   display: flex;
   flex-direction: column;
@@ -315,12 +361,15 @@
   margin-top: 15px;
   gap: 0.2rem;
 }
+
 .settings .change-btn .start-btn-choose-checkers-player1 {
   display: none;
 }
+
 .settings .change-btn .okay-change-name {
   display: block;
 }
+
 .settings .change-btn .next-popup-btn {
   display: none;
 }
@@ -361,5 +410,7 @@ body {
     opacity: 0;
   }
 }
+/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.scss.map */
 
 /*# sourceMappingURL=style.css.map */
