@@ -146,11 +146,18 @@ export const rules = () => {
 }
 
 /* In game, Button Change Name */
-export const changeName = () => {
+export const changePlayerDetails = () => {
     document.querySelector(".settings").classList.remove('active')
     document.querySelector(".choose-player").classList.add('active');
     document.querySelector('.dismiss-btn .okay-change-name').style.display = 'none';
     document.querySelector('.choose-player .close-popup-btn').style.display = 'block';
+    
+    document.querySelector('.x-checker-p1').style.textShadow = `1px 1px 2px black, 2px 2px 5px ${localStorage.getItem('p1-color')}`
+    document.querySelector('.o-checker-p1').style.textShadow = `1px 1px 2px black, 2px 2px 5px ${localStorage.getItem('p1-color')}`
+
+    document.querySelector('.x-checker-p2').style.textShadow = `1px 1px 2px black, 2px 2px 5px ${localStorage.getItem('p2-color')}`
+    document.querySelector('.o-checker-p2').style.textShadow = `1px 1px 2px black, 2px 2px 5px ${localStorage.getItem('p2-color')}`
+
     if(localStorage.getItem('p1-checker') == 'X'){
         document.querySelector('.o-checker-p2').classList.add('active-checker-p2')
         document.querySelector('.x-checker-p2').style.background = 'lightgray';
@@ -170,11 +177,6 @@ export const changeColor = () => {
     document.querySelector('.choose-color .close-popup-btn').style.display = 'block';
 }
 
-/* In game, Button Change Checker */
-export const changeChecker = () => {
-    document.querySelector(".settings").classList.remove('active')
-    document.querySelector(".choose-checkers-player1").classList.add('active')
-}
 
 /* In game, Button Settings */
 export const settings = () => {
@@ -211,6 +213,7 @@ export const close = () => {
     if(localStorage.getItem('p2').length == 0) {
         localStorage.setItem('p2', 'Player 2')
     }
+    document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p1')}'s turn`
 }
 
 
@@ -221,11 +224,10 @@ document.querySelector('.x-checker-p1').addEventListener('click', xp1PickChecker
 document.querySelector('.o-checker-p1').addEventListener('click', op1PickChecker)
 document.querySelector('.rules').addEventListener('click', rules)
 document.querySelector('.close-popup-btn').addEventListener('click', close)
-document.querySelector('.change-player-name').addEventListener('click', changeName)
+document.querySelector('.change-player-name').addEventListener('click', changePlayerDetails)
 document.querySelector('.choose-player .close-popup-btn').addEventListener('click', close)
 document.querySelector('.change-player-color').addEventListener('click', changeColor)
 document.querySelector('.choose-color .close-popup-btn').addEventListener('click', close)
-document.querySelector('.change-player-checker').addEventListener('click', changeChecker)
 document.querySelector('.fa-cog').addEventListener('click', settings)
 document.querySelector('.settings .close-popup-btn').addEventListener('click', close)
 document.querySelector('.player-win .close-popup-btn').addEventListener('click', close)

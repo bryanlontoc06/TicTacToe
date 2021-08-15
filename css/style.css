@@ -1,3 +1,13 @@
+/*
+  Template Name : Tic Tac Toe
+  Description : A game in which two players seek in alternate turns to complete a row, a column, or a diagonal with either three O's or three X's drawn in the spaces of a grid of nine squares.
+
+  Author: Bryan Lontoc
+  Tags: Tic-tac-toe, XXX, OOO, player1, player2, three-in-a-row, win, lose, name, color, checker\
+
+  Other details: 
+  A Project that uses HTML, CSS, and Vanilla Javascript with a saving history feature (next and previous button)
+*/
 #main #board-container {
   display: grid;
   grid-template-columns: repeat(3, auto);

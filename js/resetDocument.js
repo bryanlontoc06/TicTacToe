@@ -9,7 +9,6 @@ const resetDocuments = () => {
     document.querySelector('.player-turns').style.visibility = 'visible'
     document.querySelector('.change-player-name').style.pointerEvents = "auto"
     document.querySelector('.change-player-color').style.pointerEvents = "auto"
-    document.querySelector('.change-player-checker').style.pointerEvents = "auto"
     
 
     document.querySelector("._00").style.color = '#000'  

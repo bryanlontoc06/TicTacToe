@@ -4,7 +4,6 @@ const playerClick = (player, element) => {
         document.querySelector('.player-turns').innerHTML = `${localStorage.getItem('p2')}'s turn`
         document.querySelector('.change-player-name').style.pointerEvents = "none"
         document.querySelector('.change-player-color').style.pointerEvents = "none"
-        document.querySelector('.change-player-checker').style.pointerEvents = "none"
         element.style.color = `#fff`
         if(player = 1){
             element.style.textShadow = `2px 2px 5px ${localStorage.getItem('p1-color')}`
