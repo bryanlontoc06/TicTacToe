@@ -45,7 +45,7 @@ const clickedCell = (element, row, col, elNum) => {
     } else {
         game[col][row] = localStorage.getItem('p2-checker')
     }
-
+    console.table(game)
     /* ***** MOVE PER CELL ***** */
     if (win != -1) { 
         return;
